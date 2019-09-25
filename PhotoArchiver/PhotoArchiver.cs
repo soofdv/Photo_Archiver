@@ -20,13 +20,13 @@ namespace PhotoArchiver
 
         private void fileLoaderButton_Click(object sender, EventArgs e)
         {
-            fileOverview.Nodes.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
+                    fileOverview.Nodes.Clear();
                     BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
