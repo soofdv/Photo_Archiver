@@ -105,6 +105,7 @@
             this.optionsButton.TabIndex = 6;
             this.optionsButton.Text = "Opties";
             this.optionsButton.UseVisualStyleBackColor = true;
+            this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
             // 
             // photoArchiverForm
             // 

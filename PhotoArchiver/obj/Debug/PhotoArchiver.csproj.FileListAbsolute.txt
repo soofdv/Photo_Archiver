@@ -18,3 +18,8 @@ D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.Generate
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CoreCompileInputs.cache
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
+D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.dll
+D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.dll
+D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.xml
+D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.xml
+D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CopyComplete
