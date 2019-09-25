@@ -18,3 +18,12 @@ D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.Generate
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CoreCompileInputs.cache
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe.config
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.pdb
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csprojAssemblyReference.cache
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.photoArchiverForm.resources
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.Properties.Resources.resources
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.GenerateResource.cache
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
