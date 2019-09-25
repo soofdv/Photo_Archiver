@@ -33,6 +33,7 @@ namespace PhotoArchiver
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
+                    fileOverview.Nodes.Clear();
                     BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
