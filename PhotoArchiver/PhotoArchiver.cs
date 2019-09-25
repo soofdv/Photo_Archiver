@@ -18,60 +18,30 @@ namespace PhotoArchiver
             InitializeComponent();
         }
 
-        FolderBrowserDialog fbd = new FolderBrowserDialog();
-
         private void fileLoaderButton_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string currentPath = fbd.SelectedPath;
-                string[] allfiles = Directory.GetFiles(currentPath, "*", SearchOption.AllDirectories);
-
-                fileOverview.Nodes.Clear();
-                if (currentPath != "" && Directory.Exists(currentPath))
+                DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
+                if (directoryInfo.Exists)
                 {
-                    LoadDirectory(currentPath);
+                    BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
         }
 
-        public void LoadDirectory(string path)
+        private void BuildTree(DirectoryInfo directoryInfo, TreeNodeCollection addInMe)
         {
-            DirectoryInfo di = new DirectoryInfo(path);
-            TreeNode tds = fileOverview.Nodes.Add(di.Name);
-            tds.Tag = di.FullName;
-            tds.StateImageIndex = 0;
-            LoadFiles(path, tds);
-            LoadSubDirectories(path, tds);
-        }
+            TreeNode curNode = addInMe.Add(directoryInfo.Name);
 
-        private void LoadSubDirectories(string path, TreeNode td)
-        {
-            // Get all subdirectories
-            string[] subdirs = Directory.GetDirectories(path);
-
-            // loop through them to see if they have any other subdirectories
-            foreach (string sub in subdirs)
+            foreach (FileInfo file in directoryInfo.GetFiles())
             {
-                DirectoryInfo di = new DirectoryInfo(sub);
-                TreeNode tds = td.Nodes.Add(di.Name);
-                tds.StateImageIndex = 0;
-                tds.Tag = di.FullName;
-                LoadSubDirectories(sub, tds);
+                curNode.Nodes.Add(file.FullName, file.Name);
             }
-        }
-
-        private void LoadFiles(string path, TreeNode td)
-        {
-            string[] Files = Directory.GetFiles(path, "*");
-
-            // loop through them to show files
-            foreach (string file in Files)
+            foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {
-                FileInfo fi = new FileInfo(file);
-                TreeNode tds = td.Nodes.Add(fi.Name);
-                tds.Tag = fi.FullName;
-                tds.StateImageIndex = 1;
+                BuildTree(subdir, curNode.Nodes);
             }
         }
     }

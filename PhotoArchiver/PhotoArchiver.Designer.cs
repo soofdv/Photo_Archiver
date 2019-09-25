@@ -40,7 +40,7 @@
             // fileLoaderButton
             // 
             this.fileLoaderButton.Location = new System.Drawing.Point(10, 11);
-            this.fileLoaderButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileLoaderButton.Margin = new System.Windows.Forms.Padding(2);
             this.fileLoaderButton.Name = "fileLoaderButton";
             this.fileLoaderButton.Size = new System.Drawing.Size(186, 29);
             this.fileLoaderButton.TabIndex = 0;
@@ -51,16 +51,16 @@
             // fileOverview
             // 
             this.fileOverview.Location = new System.Drawing.Point(10, 45);
-            this.fileOverview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
-            this.fileOverview.Size = new System.Drawing.Size(187, 344);
+            this.fileOverview.Size = new System.Drawing.Size(186, 344);
             this.fileOverview.TabIndex = 1;
             // 
             // fileNameTextbox
             // 
             this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 10);
-            this.fileNameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileNameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.fileNameTextbox.Name = "fileNameTextbox";
             this.fileNameTextbox.Size = new System.Drawing.Size(210, 26);
             this.fileNameTextbox.TabIndex = 2;
@@ -69,7 +69,7 @@
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(422, 10);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(86, 24);
             this.saveButton.TabIndex = 3;
@@ -81,7 +81,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(208, 39);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(301, 28);
             this.comboBox1.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(208, 71);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(301, 318);
             this.listView1.TabIndex = 5;
@@ -99,7 +99,7 @@
             // optionsButton
             // 
             this.optionsButton.Location = new System.Drawing.Point(520, 10);
-            this.optionsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.optionsButton.Margin = new System.Windows.Forms.Padding(2);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(58, 24);
             this.optionsButton.TabIndex = 6;
@@ -118,7 +118,7 @@
             this.Controls.Add(this.fileNameTextbox);
             this.Controls.Add(this.fileOverview);
             this.Controls.Add(this.fileLoaderButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "photoArchiverForm";
             this.Text = "Photo Archiver";
             this.ResumeLayout(false);
