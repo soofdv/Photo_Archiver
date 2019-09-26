@@ -50,7 +50,12 @@ namespace PhotoArchiver
                 var info = new FileInfo(file.FullName);
                 DateTime created = info.CreationTime;
 
-                pictures.Add(new Picture { PictureName = file.Name, DateTimeCreated = created, FilePath = file.FullName });
+                pictures.Add(new Picture { PictureName = file.Name,
+                                           DateTimeCreated = created,
+                                           FilePath = file.FullName,
+                                           itemType = file.Extension,
+                                           parentDirName = file.Directory.ToString(),
+                                           parentDirPath = file.DirectoryName});
             }
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {
