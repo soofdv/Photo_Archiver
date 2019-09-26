@@ -52,6 +52,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JpgFile.cs" />
+    <Compile Include="NefFile.cs" />
     <Compile Include="PhotoArchiver.cs">
       <SubType>Form</SubType>
     </Compile>
