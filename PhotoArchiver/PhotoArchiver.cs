@@ -51,8 +51,7 @@ namespace PhotoArchiver
 
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            fileSelf = FilePath + "\\" + fileOverview.SelectedNode.Text;
-            label1.Text = fileSelf;
+            fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
 
             fileNameTextbox.Text = fileOverview.SelectedNode.Text;
         }
@@ -61,7 +60,7 @@ namespace PhotoArchiver
         {
             try
             {
-                File.Move(fileOverview.SelectedNode.Text, fileNameTextbox.Text);
+                File.Move(fileSelf, FilePath + "\\" + fileNameTextbox.Text);
                 Console.WriteLine(fileSelf);
                 MessageBox.Show("OK");
             }
