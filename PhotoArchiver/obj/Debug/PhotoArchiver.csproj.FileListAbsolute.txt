@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe.config
 C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe
 C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.pdb
@@ -24,27 +23,6 @@ D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.dll
 D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.xml
 D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.xml
 D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CopyComplete
-=======
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe.config
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\bin\Debug\PhotoArchiver.pdb
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.csprojAssemblyReference.cache
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.photoArchiverForm.resources
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.Properties.Resources.resources
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.GenerateResource.cache
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CoreCompileInputs.cache
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
-C:\Users\Svenr\Desktop\PhotoArchiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
-D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe.config
-D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe
-D:\legeRepo\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.pdb
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csprojAssemblyReference.cache
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.photoArchiverForm.resources
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.Properties.Resources.resources
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.GenerateResource.cache
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CoreCompileInputs.cache
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
-D:\legeRepo\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe.config
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.exe
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\PhotoArchiver.pdb
@@ -54,4 +32,8 @@ C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoA
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.GenerateResource.cache
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.exe
 C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
->>>>>>> master
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.dll
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.dll
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.xml
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.xml
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CopyComplete

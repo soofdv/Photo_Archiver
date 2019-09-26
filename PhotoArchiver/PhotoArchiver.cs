@@ -62,7 +62,10 @@ namespace PhotoArchiver
         }
 
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
-        {
+        {            TreeNode treevieuwMap = fileOverview.SelectedNode.Parent;            MessageBox.Show(treevieuwMap.GetNodeCount(false).ToString());            for (int i = 0; i < treevieuwMap.GetNodeCount(false); i++)
+            {
+                MessageBox.Show(treevieuwMap.Nodes.ToString());
+            }            MessageBox.Show(treevieuwMap.ToString());
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
 
             fileNameTextbox.Text = fileOverview.SelectedNode.Text;
@@ -71,7 +74,8 @@ namespace PhotoArchiver
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
-            {
+            {
+
                 File.Move(fileSelf, FilePath + "\\" + fileNameTextbox.Text);
                 Console.WriteLine(fileSelf);
                 MessageBox.Show("OK");
@@ -80,6 +84,6 @@ namespace PhotoArchiver
             {
                 MessageBox.Show("Something went wrong");
             }
-        }
+        }
     }
 }
