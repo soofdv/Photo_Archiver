@@ -35,6 +35,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.optionsButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fileLoaderButton
@@ -55,6 +56,7 @@
             this.fileOverview.Name = "fileOverview";
             this.fileOverview.Size = new System.Drawing.Size(186, 344);
             this.fileOverview.TabIndex = 1;
+            this.fileOverview.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileOverview_AfterSelect);
             // 
             // fileNameTextbox
             // 
@@ -75,6 +77,7 @@
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // comboBox1
             // 
@@ -106,11 +109,21 @@
             this.optionsButton.Text = "Opties";
             this.optionsButton.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(517, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
             // photoArchiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 397);
+            this.ClientSize = new System.Drawing.Size(1115, 397);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.comboBox1);
@@ -135,6 +148,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button optionsButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 

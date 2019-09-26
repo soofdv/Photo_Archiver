@@ -13,6 +13,8 @@ namespace PhotoArchiver
 {
     public partial class photoArchiverForm : Form
     {
+        string FilePath;
+        string fileSelf;
         public photoArchiverForm()
         {
             InitializeComponent();
@@ -43,6 +45,29 @@ namespace PhotoArchiver
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {
                 BuildTree(subdir, curNode.Nodes);
+            }
+            FilePath = directoryInfo.ToString();
+        }
+
+        private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            fileSelf = FilePath + "\\" + fileOverview.SelectedNode.Text;
+            label1.Text = fileSelf;
+
+            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                File.Move(fileOverview.SelectedNode.Text, fileNameTextbox.Text);
+                Console.WriteLine(fileSelf);
+                MessageBox.Show("OK");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong");
             }
         }
     }
