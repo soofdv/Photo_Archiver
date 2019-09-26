@@ -15,7 +15,9 @@ using System.Windows.Forms;
 namespace PhotoArchiver
 {
     public partial class photoArchiverForm : Form
-    {
+    {
+        string FilePath;
+        string fileSelf;
         public photoArchiverForm()
         {
             InitializeComponent();
@@ -61,11 +63,28 @@ namespace PhotoArchiver
             {
                 BuildTree(subdir, curNode.Nodes);
             }
-        }
+            FilePath = directoryInfo.ToString();
+        }
+
+        private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
 
-        private void optionsButton_Click(object sender, EventArgs e)
-        {
-           
-        }
+            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                File.Move(fileSelf, FilePath + "\\" + fileNameTextbox.Text);
+                Console.WriteLine(fileSelf);
+                MessageBox.Show("OK");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
     }
 }
