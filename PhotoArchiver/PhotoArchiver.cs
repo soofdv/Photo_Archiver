@@ -56,7 +56,6 @@ namespace PhotoArchiver
                                            DateTimeCreated = created,
                                            FilePath = file.FullName,
                                            itemType = file.Extension,
-                                           parentDirName = file.Directory.ToString(),
                                            parentDirPath = file.DirectoryName});
             }
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())

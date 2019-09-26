@@ -8,7 +8,6 @@ namespace PhotoArchiver
         public DateTime DateTimeCreated { get; set; }
         public string FilePath { get; set; }
         public string itemType { get; set; }
-        public string parentDirName { get; set; }
         public string parentDirPath { get; set; }
     }
 }
