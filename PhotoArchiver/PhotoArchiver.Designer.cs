@@ -40,7 +40,7 @@ namespace PhotoArchiver
             // fileLoaderButton
             // 
             this.fileLoaderButton.Location = new System.Drawing.Point(10, 11);
-            this.fileLoaderButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileLoaderButton.Margin = new System.Windows.Forms.Padding(2);
             this.fileLoaderButton.Name = "fileLoaderButton";
             this.fileLoaderButton.Size = new System.Drawing.Size(186, 29);
             this.fileLoaderButton.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace PhotoArchiver
             // fileOverview
             // 
             this.fileOverview.Location = new System.Drawing.Point(10, 45);
-            this.fileOverview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
             this.fileOverview.Size = new System.Drawing.Size(186, 344);
             this.fileOverview.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace PhotoArchiver
             // 
             this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 10);
-            this.fileNameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileNameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.fileNameTextbox.Name = "fileNameTextbox";
             this.fileNameTextbox.Size = new System.Drawing.Size(210, 26);
             this.fileNameTextbox.TabIndex = 2;
@@ -71,19 +71,20 @@ namespace PhotoArchiver
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(422, 10);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(86, 24);
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
             // 
             // formatsCombobox
             // 
             this.formatsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formatsCombobox.FormattingEnabled = true;
             this.formatsCombobox.Location = new System.Drawing.Point(208, 39);
-            this.formatsCombobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.formatsCombobox.Margin = new System.Windows.Forms.Padding(2);
             this.formatsCombobox.Name = "formatsCombobox";
             this.formatsCombobox.Size = new System.Drawing.Size(301, 28);
             this.formatsCombobox.TabIndex = 4;
@@ -93,7 +94,7 @@ namespace PhotoArchiver
             // 
             this.previewListbox.HideSelection = false;
             this.previewListbox.Location = new System.Drawing.Point(208, 71);
-            this.previewListbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.previewListbox.Margin = new System.Windows.Forms.Padding(2);
             this.previewListbox.Name = "previewListbox";
             this.previewListbox.Size = new System.Drawing.Size(301, 318);
             this.previewListbox.TabIndex = 5;
@@ -103,7 +104,7 @@ namespace PhotoArchiver
             // optionsButton
             // 
             this.optionsButton.Location = new System.Drawing.Point(520, 10);
-            this.optionsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.optionsButton.Margin = new System.Windows.Forms.Padding(2);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(58, 24);
             this.optionsButton.TabIndex = 6;
@@ -123,7 +124,7 @@ namespace PhotoArchiver
             this.Controls.Add(this.fileNameTextbox);
             this.Controls.Add(this.fileOverview);
             this.Controls.Add(this.fileLoaderButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "photoArchiverForm";
             this.Text = "Photo Archiver";
             this.Load += new System.EventHandler(this.photoArchiverForm_Load);

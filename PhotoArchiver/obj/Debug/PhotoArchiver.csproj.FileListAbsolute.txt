@@ -47,3 +47,8 @@ C:\Users\Svenr\Desktop\PhotoArchiver\Code\PhotoArchiver\obj\Debug\PhotoArchiver.
 C:\Users\Svenr\Desktop\PhotoArchiver\Code\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CopyComplete
 C:\Users\Svenr\Desktop\PhotoArchiver\Code\PhotoArchiver\obj\Debug\PhotoArchiver.exe
 C:\Users\Svenr\Desktop\PhotoArchiver\Code\PhotoArchiver\obj\Debug\PhotoArchiver.pdb
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.dll
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.dll
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\MetadataExtractor.xml
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\bin\Debug\XmpCore.xml
+C:\Users\stijn\OneDrive - ROC West-Brabant\Photo Archiever\Photo_Archiver\PhotoArchiver\obj\Debug\PhotoArchiver.csproj.CopyComplete
