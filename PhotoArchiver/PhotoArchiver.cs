@@ -81,6 +81,8 @@ namespace PhotoArchiver
                 DateTime created = info.CreationTime;
 
                 pictures.Add(new Picture { PictureName = file.Name, DateTimeCreated = created, FilePath = file.FullName, FileType = file.Extension.ToString()});
+                if()
+                amountToRenameBar.Text = (int.Parse(amountToRenameBar.Text)+1).ToString();
             }
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {

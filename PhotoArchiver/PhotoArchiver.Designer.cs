@@ -35,6 +35,10 @@ namespace PhotoArchiver
             this.formatsCombobox = new System.Windows.Forms.ComboBox();
             this.previewListbox = new System.Windows.Forms.ListView();
             this.optionsButton = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.amountToRenameBar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileLoaderButton
@@ -112,11 +116,35 @@ namespace PhotoArchiver
             this.optionsButton.UseVisualStyleBackColor = true;
             this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.amountToRenameBar,
+            this.toolStripStatusLabel4});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(587, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // amountToRenameBar
+            // 
+            this.amountToRenameBar.Name = "amountToRenameBar";
+            this.amountToRenameBar.Size = new System.Drawing.Size(13, 17);
+            this.amountToRenameBar.Text = "0";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(90, 17);
+            this.toolStripStatusLabel4.Text = "Files to rename.";
+            // 
             // photoArchiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 397);
+            this.ClientSize = new System.Drawing.Size(587, 428);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.previewListbox);
             this.Controls.Add(this.formatsCombobox);
@@ -128,6 +156,8 @@ namespace PhotoArchiver
             this.Name = "photoArchiverForm";
             this.Text = "Photo Archiver";
             this.Load += new System.EventHandler(this.photoArchiverForm_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +172,9 @@ namespace PhotoArchiver
         private System.Windows.Forms.ComboBox formatsCombobox;
         private System.Windows.Forms.ListView previewListbox;
         private System.Windows.Forms.Button optionsButton;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel amountToRenameBar;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 
