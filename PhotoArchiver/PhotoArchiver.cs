@@ -18,6 +18,9 @@ namespace PhotoArchiver
     {
         string FilePath;
         string fileSelf;
+        string[] pics = new string[0];
+        int i;
+
         public photoArchiverForm()
         {
             InitializeComponent();
@@ -44,7 +47,7 @@ namespace PhotoArchiver
         private void BuildTree(DirectoryInfo directoryInfo, TreeNodeCollection addInMe)
         {
             TreeNode curNode = addInMe.Add(directoryInfo.Name);
-
+            
             foreach (FileInfo file in directoryInfo.GetFiles())
             {
                 curNode.Nodes.Add(file.FullName, file.Name);
@@ -58,14 +61,16 @@ namespace PhotoArchiver
             {
                 BuildTree(subdir, curNode.Nodes);
             }
+            int i = 0;
+            foreach (Picture picture in pictures)
+            {
+                pics[i++] = picture.PictureName;
+            }
             FilePath = directoryInfo.ToString();
         }
 
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
-        {            TreeNode treevieuwMap = fileOverview.SelectedNode.Parent;            MessageBox.Show(treevieuwMap.GetNodeCount(false).ToString());            for (int i = 0; i < treevieuwMap.GetNodeCount(false); i++)
-            {
-                MessageBox.Show(treevieuwMap.Nodes.ToString());
-            }            MessageBox.Show(treevieuwMap.ToString());
+        {            TreeNode treevieuwMap = fileOverview.SelectedNode.Parent;            MessageBox.Show(treevieuwMap.GetNodeCount(false).ToString());            TreeNode treeviewParent = fileOverview.SelectedNode.Parent;            MessageBox.Show(treevieuwMap.ToString());
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
 
             fileNameTextbox.Text = fileOverview.SelectedNode.Text;
@@ -75,8 +80,13 @@ namespace PhotoArchiver
         {
             try
             {
+                for (int i = 0; i < pics.Count(); i++)
+                {
+                    fileSelf = @FilePath + "\\" + pics[i];
+                    File.Move(fileSelf, FilePath + "\\" + fileNameTextbox.Text);
+                }
 
-                File.Move(fileSelf, FilePath + "\\" + fileNameTextbox.Text);
+
                 Console.WriteLine(fileSelf);
                 MessageBox.Show("OK");
             }
