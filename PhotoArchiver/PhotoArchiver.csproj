@@ -59,6 +59,9 @@
       <DependentUpon>PhotoArchiver.cs</DependentUpon>
     </Compile>
     <Compile Include="Picture.cs" />
+    <Compile Include="PlaceHolderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PhotoArchiver.resx">

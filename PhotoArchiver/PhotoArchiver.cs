@@ -38,6 +38,8 @@ namespace PhotoArchiver
                 formatsCombobox.Items.Add(format);
             }
             formatsCombobox.SelectedIndex = 0;
+
+            fileNameTextbox1.Text = "Enter filename here....";
         }
 
         public void FillFormats()
@@ -48,8 +50,6 @@ namespace PhotoArchiver
             formats.Add("<naam><MM-DD-YYYY><tijd>");
         }
 
-
-
         private void fileLoaderButton_Click(object sender, EventArgs e)
         {
             previewListbox.Clear();
@@ -57,7 +57,6 @@ namespace PhotoArchiver
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 fileOverview.Nodes.Clear();
-                fileNameTextbox.Text = "Bestandsnaam";
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
@@ -65,6 +64,7 @@ namespace PhotoArchiver
                     BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
+            fileOverview.ExpandAll();
 
             SetNewNames();
         }
@@ -122,7 +122,7 @@ namespace PhotoArchiver
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
         {
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
-            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
+            fileNameTextbox1.Text = fileOverview.SelectedNode.Text;
         }
 
         private void fileNameTextbox_TextChanged(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace PhotoArchiver
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox.Text;
+            string newName = fileNameTextbox1.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -187,11 +187,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
+                        newFullName = fileNameTextbox1.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextbox1.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);
