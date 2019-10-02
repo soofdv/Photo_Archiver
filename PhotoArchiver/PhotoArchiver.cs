@@ -58,7 +58,7 @@ namespace PhotoArchiver
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 fileOverview.Nodes.Clear();
-                fileNameTextbox.Text = "";
+                fileNameTextbox1.Text = "";
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
@@ -108,7 +108,7 @@ namespace PhotoArchiver
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox.Text;
+            string newName = fileNameTextbox1.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -163,11 +163,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
+                        newFullName = fileNameTextbox1.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextbox1.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);
@@ -191,13 +191,8 @@ namespace PhotoArchiver
                     string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
                     renameFile(FilePath, NewFile);
                 }
-                progressBar.Value = 50;
                 MessageBox.Show("Succes!");
-                progressBar.Value = 100;
                 amountToRenameBar.Text = "0";
-                progressBar.Value = 0;
-
-
             }
 
             catch (Exception)
