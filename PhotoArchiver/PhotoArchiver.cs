@@ -39,7 +39,7 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
-            fileNameTextbox1.Text = "Enter filename here....";
+            fileNameTextbox.Text = "Enter filename here....";
         }
 
         public void FillFormats()
@@ -122,7 +122,7 @@ namespace PhotoArchiver
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
         {
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
-            fileNameTextbox1.Text = fileOverview.SelectedNode.Text;
+            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
         }
 
         private void fileNameTextbox_TextChanged(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace PhotoArchiver
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox1.Text;
+            string newName = fileNameTextbox.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -187,11 +187,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox1.Text + "_" + newDateTime;
+                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox1.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);

@@ -39,7 +39,7 @@ namespace PhotoArchiver
             this.amountToRenameBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fileNameTextbox1 = new PhotoArchiver.PlaceHolderTextBox();
+            this.fileNameTextbox = new PhotoArchiver.PlaceHolderTextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,21 +137,21 @@ namespace PhotoArchiver
             // 
             // fileNameTextbox1
             // 
-            this.fileNameTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
-            this.fileNameTextbox1.ForeColor = System.Drawing.Color.Gray;
-            this.fileNameTextbox1.Location = new System.Drawing.Point(208, 12);
-            this.fileNameTextbox1.Name = "fileNameTextbox1";
-            this.fileNameTextbox1.PlaceHolderText = "Enter FileName Here...";
-            this.fileNameTextbox1.Size = new System.Drawing.Size(210, 20);
-            this.fileNameTextbox1.TabIndex = 8;
-            this.fileNameTextbox1.Text = "Enter FileName Here...";
+            this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.fileNameTextbox.ForeColor = System.Drawing.Color.Gray;
+            this.fileNameTextbox.Location = new System.Drawing.Point(208, 12);
+            this.fileNameTextbox.Name = "fileNameTextbox1";
+            this.fileNameTextbox.PlaceHolderText = "Enter FileName Here...";
+            this.fileNameTextbox.Size = new System.Drawing.Size(210, 20);
+            this.fileNameTextbox.TabIndex = 8;
+            this.fileNameTextbox.Text = "Enter FileName Here...";
             // 
             // photoArchiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 428);
-            this.Controls.Add(this.fileNameTextbox1);
+            this.Controls.Add(this.fileNameTextbox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.previewListbox);
@@ -182,7 +182,7 @@ namespace PhotoArchiver
         private System.Windows.Forms.ToolStripStatusLabel amountToRenameBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private PlaceHolderTextBox fileNameTextbox1;
+        private PlaceHolderTextBox fileNameTextbox;
     }
 }
 
