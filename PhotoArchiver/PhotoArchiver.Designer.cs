@@ -54,27 +54,33 @@ namespace PhotoArchiver
             // 
             // fileOverview
             // 
+            this.fileOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fileOverview.Location = new System.Drawing.Point(10, 45);
             this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
-            this.fileOverview.Size = new System.Drawing.Size(186, 344);
+            this.fileOverview.Size = new System.Drawing.Size(220, 378);
             this.fileOverview.TabIndex = 1;
             this.fileOverview.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileOverview_AfterSelect);
             // 
             // fileNameTextbox
             // 
+            this.fileNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 10);
             this.fileNameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.fileNameTextbox.Name = "fileNameTextbox";
-            this.fileNameTextbox.Size = new System.Drawing.Size(210, 26);
+            this.fileNameTextbox.Size = new System.Drawing.Size(244, 26);
             this.fileNameTextbox.TabIndex = 2;
-            this.fileNameTextbox.Text = "Bestandsnaam";
+            this.fileNameTextbox.Text = "bestandsnaam";
             this.fileNameTextbox.TextChanged += new System.EventHandler(this.fileNameTextbox_TextChanged);
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(422, 10);
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(456, 10);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(86, 24);
@@ -85,9 +91,10 @@ namespace PhotoArchiver
             // 
             // formatsCombobox
             // 
+            this.formatsCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.formatsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formatsCombobox.FormattingEnabled = true;
-            this.formatsCombobox.Location = new System.Drawing.Point(208, 39);
+            this.formatsCombobox.Location = new System.Drawing.Point(242, 39);
             this.formatsCombobox.Margin = new System.Windows.Forms.Padding(2);
             this.formatsCombobox.Name = "formatsCombobox";
             this.formatsCombobox.Size = new System.Drawing.Size(301, 28);
@@ -96,18 +103,21 @@ namespace PhotoArchiver
             // 
             // previewListbox
             // 
+            this.previewListbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.previewListbox.HideSelection = false;
-            this.previewListbox.Location = new System.Drawing.Point(208, 71);
+            this.previewListbox.Location = new System.Drawing.Point(242, 71);
             this.previewListbox.Margin = new System.Windows.Forms.Padding(2);
             this.previewListbox.Name = "previewListbox";
-            this.previewListbox.Size = new System.Drawing.Size(301, 318);
+            this.previewListbox.Size = new System.Drawing.Size(301, 352);
             this.previewListbox.TabIndex = 5;
             this.previewListbox.UseCompatibleStateImageBehavior = false;
             this.previewListbox.View = System.Windows.Forms.View.List;
             // 
             // optionsButton
             // 
-            this.optionsButton.Location = new System.Drawing.Point(520, 10);
+            this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.optionsButton.Location = new System.Drawing.Point(554, 10);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(2);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(58, 24);
@@ -121,9 +131,9 @@ namespace PhotoArchiver
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountToRenameBar,
             this.toolStripStatusLabel4});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 440);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(587, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(621, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -143,7 +153,7 @@ namespace PhotoArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 428);
+            this.ClientSize = new System.Drawing.Size(621, 462);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.previewListbox);
