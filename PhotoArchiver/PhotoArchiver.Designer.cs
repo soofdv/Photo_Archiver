@@ -39,7 +39,8 @@ namespace PhotoArchiver
             this.amountToRenameBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fileNameTextbox = new System.Windows.Forms.TextBox();
+            this.fileNameTextBox = new PhotoArchiver.PlaceHolderTextBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,8 +63,8 @@ namespace PhotoArchiver
             this.fileOverview.Location = new System.Drawing.Point(10, 45);
             this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
-            this.fileOverview.Size = new System.Drawing.Size(186, 344);
-            this.fileOverview.TabIndex = 10;
+            this.fileOverview.Size = new System.Drawing.Size(186, 354);
+            this.fileOverview.TabIndex = 1;
             this.fileOverview.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileOverview_AfterSelect);
             // 
             // saveButton
@@ -98,7 +99,7 @@ namespace PhotoArchiver
             this.previewListbox.Location = new System.Drawing.Point(208, 71);
             this.previewListbox.Margin = new System.Windows.Forms.Padding(2);
             this.previewListbox.Name = "previewListbox";
-            this.previewListbox.Size = new System.Drawing.Size(301, 318);
+            this.previewListbox.Size = new System.Drawing.Size(301, 328);
             this.previewListbox.TabIndex = 5;
             this.previewListbox.UseCompatibleStateImageBehavior = false;
             this.previewListbox.View = System.Windows.Forms.View.List;
@@ -120,7 +121,7 @@ namespace PhotoArchiver
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountToRenameBar,
             this.toolStripStatusLabel4});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 433);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(587, 22);
             this.statusStrip1.TabIndex = 7;
@@ -143,24 +144,31 @@ namespace PhotoArchiver
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // fileNameTextbox
+            // fileNameTextBox
             // 
-            this.fileNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileNameTextbox.Location = new System.Drawing.Point(208, 12);
-            this.fileNameTextbox.Name = "fileNameTextbox";
-            this.fileNameTextbox.Size = new System.Drawing.Size(215, 20);
-            this.fileNameTextbox.TabIndex = 2;
-            this.fileNameTextbox.Text = "Bestandnaam";
-            this.fileNameTextbox.TextChanged += new System.EventHandler(this.fileNameTextbox_TextChanged_1);
-            this.fileNameTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fileNameTextbox_KeyDown);
+            this.fileNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.fileNameTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.fileNameTextBox.Location = new System.Drawing.Point(208, 11);
+            this.fileNameTextBox.Name = "fileNameTextBox";
+            this.fileNameTextBox.PlaceHolderText = null;
+            this.fileNameTextBox.Size = new System.Drawing.Size(215, 20);
+            this.fileNameTextBox.TabIndex = 9;
+            this.fileNameTextBox.TextChanged += new System.EventHandler(this.fileNameTextBox_TextChanged);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(208, 432);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(301, 23);
+            this.progressBar.TabIndex = 10;
             // 
             // photoArchiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 428);
-            this.Controls.Add(this.fileNameTextbox);
+            this.ClientSize = new System.Drawing.Size(587, 455);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.previewListbox);
@@ -192,7 +200,8 @@ namespace PhotoArchiver
         private System.Windows.Forms.ToolStripStatusLabel amountToRenameBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox fileNameTextbox;
+        private PlaceHolderTextBox fileNameTextBox;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

@@ -41,7 +41,8 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
-            fileNameTextbox.Text = "Enter filename here....";
+            fileNameTextBox.PlaceHolderText = "Enter filename here....";
+            progressBar.Visible = false;
         }
 
         public void FillFormats()
@@ -106,7 +107,7 @@ namespace PhotoArchiver
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox.Text;
+            string newName = fileNameTextBox.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -161,11 +162,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
+                        newFullName = fileNameTextBox.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextBox.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);
@@ -180,35 +181,49 @@ namespace PhotoArchiver
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            int amountOfPictures = pictures.Count;
+            double progressbarStep = amountOfPictures / 100;
+
+            progressBar.Value = 1;
+            progressBar.Visible = true;
+            progressBar.Maximum = amountOfPictures;
+            progressBar.Minimum = 0;
+
             try
             {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     Console.WriteLine(fileSelf);
                     foreach (var picture in pictures)
                     {
-                        FolderBrowserDialog fbd = new FolderBrowserDialog();
-
-                        picture.AddedText = fileNameTextbox.Text;
+                        picture.AddedText = fileNameTextBox.Text;
 
                         FilePath = picture.FilePath;
                         string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
                         renameFile(FilePath, NewFile);
+
+
+                        string NewFolderPath = Path.Combine(FilePathFolder + "\\" + picture.PictureName);
+
                         moveFile(NewFile, picture, fbd.SelectedPath);
+                        progressBar.PerformStep();
                     }
-                    MessageBox.Show("Succes!");
-                    amountToRenameBar.Text = "0";
+
+                    MessageBox.Show("Done!");
+                    progressBar.Visible = false;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong!");
+                MessageBox.Show("Something went wrong");
             }
         }
 
         private void renameFile(string filePath, string newFile)
         {
             File.Move(filePath, newFile);
+          
         }
 
         private void moveFile(string filePath, Picture picture, string SelectedPath)
@@ -240,10 +255,10 @@ namespace PhotoArchiver
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
         {
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
-            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
+            fileNameTextBox.Text = fileOverview.SelectedNode.Text;
         }
 
-        private void fileNameTextbox_TextChanged_1(object sender, EventArgs e)
+        private void fileNameTextBox_TextChanged(object sender, EventArgs e)
         {
             SetNewNames();
         }
