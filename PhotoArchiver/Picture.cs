@@ -9,5 +9,6 @@ namespace PhotoArchiver
         public string FilePath { get; set; }
         public string FileType { get; set; }
 
+        public string AddedText { get; set; }
     }
 }

@@ -172,6 +172,7 @@ namespace PhotoArchiver
             this.Name = "photoArchiverForm";
             this.Text = "Photo Archiver";
             this.Load += new System.EventHandler(this.photoArchiverForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.photoArchiverForm_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

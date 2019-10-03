@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Directory = System.IO.Directory;
 
 namespace PhotoArchiver
 {
@@ -24,8 +26,6 @@ namespace PhotoArchiver
         string fileSelf;
         string FilePathFolder;
         FolderBrowserDialog fbd = new FolderBrowserDialog();
-
-
 
         public photoArchiverForm()
         {
@@ -41,6 +41,7 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
+            fileNameTextbox.Text = "Enter filename here....";
         }
 
         public void FillFormats()
@@ -89,6 +90,7 @@ namespace PhotoArchiver
             {
                 BuildTree(subdir, curNode.Nodes);
             }
+            fileOverview.ExpandAll();
 
             FilePathFolder = directoryInfo.FullName;
         }
@@ -101,7 +103,6 @@ namespace PhotoArchiver
                 MessageBox.Show(picture.FileType);
             }
         }
-
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -139,7 +140,7 @@ namespace PhotoArchiver
             SetNewNames();
         }
 
-        void SetNewNames()
+        public void SetNewNames()
         {
             newNames.Clear();
             previewListbox.Clear();
@@ -181,37 +182,59 @@ namespace PhotoArchiver
         {
             try
             {
-                Console.WriteLine(fileSelf);
-                foreach (var picture in pictures)
+                if (fbd.ShowDialog() == DialogResult.OK)
                 {
-                    FilePath = picture.FilePath;
-                    string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
-                    renameFile(FilePath, NewFile);
+                    Console.WriteLine(fileSelf);
+                    foreach (var picture in pictures)
+                    {
+                        FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+                        picture.AddedText = fileNameTextbox.Text;
+
+                        FilePath = picture.FilePath;
+                        string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
+                        renameFile(FilePath, NewFile);
+                        moveFile(NewFile, picture, fbd.SelectedPath);
+                    }
+                    MessageBox.Show("Succes!");
+                    amountToRenameBar.Text = "0";
                 }
-                MessageBox.Show("Succes!");
-                amountToRenameBar.Text = "0";
-
             }
-
             catch (Exception)
             {
                 MessageBox.Show("Something went wrong!");
             }
-            pictures.Clear();
-            fileOverview.Nodes.Clear();
-            DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
-            BuildTree(directoryInfo, fileOverview.Nodes);
-            fileOverview.ExpandAll();
-        }
-
-        private void moveFile(string filePath, string newfilePath)
-        {
-            File.Move(FilePath, newfilePath);
         }
 
         private void renameFile(string filePath, string newFile)
         {
             File.Move(filePath, newFile);
+        }
+
+        private void moveFile(string filePath, Picture picture, string SelectedPath)
+        {
+            
+            string newFolderPath = Path.Combine(SelectedPath + "\\" + picture.AddedText);
+
+            string root = @newFolderPath;
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+                Debug.WriteLine(filePath);
+                Debug.WriteLine(newFolderPath);
+                File.Move(filePath, newFolderPath + "\\" + picture.PictureName + picture.FileType);
+            }
+            else
+            {
+                File.Move(filePath, newFolderPath + "\\" + picture.PictureName + picture.FileType);
+            }
+            
+
+            // check file names en maak subfolder aan als isset == false is
+            // in selected folder moet een subfolder komen.
+            // renameFile.newfile == moveFile.filePath
+            // moveFile.newfile == selected folder path + new file name
         }
 
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
@@ -231,6 +254,31 @@ namespace PhotoArchiver
             {
                 saveButton_Click(sender, e);
             }
+        }
+
+        private void photoArchiverForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.L))
+            {
+                fileLoaderButton.PerformClick();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                saveButton.PerformClick();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.N))
+            {
+                fileNameTextbox.Select();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
