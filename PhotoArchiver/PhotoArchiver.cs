@@ -41,6 +41,55 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
+            // drive = e:\ schijfletter met dubstring
+
+
+        }
+
+        public bool isDriveFixed(string filepath)
+        {
+
+            // define string 
+            String str = filepath;
+
+            // retrieve the substring from index 0 to length 8 
+            string location = str.Substring(0, 3);
+
+            DriveInfo[] allDrives = System.IO.DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                if (location == d.Name.ToString())
+                {
+                    if (d.IsReady && d.DriveType == DriveType.Fixed)
+                    {
+                        // // schijf is fixed
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public void FillFormats()
+        {
+            formats.Add("<naam><YYYY-MM-DD><tijd>");
+            formats.Add("<naam><YYYY-DD-MM><tijd>");
+            formats.Add("<naam><DD-MM-YYYY><tijd>");
+            formats.Add("<naam><MM-DD-YYYY><tijd>");
+        }
+
+
+
+        private void photoArchiverForm_Load(object sender, EventArgs e)
+        {
+            FillFormats();
+            foreach (string format in formats)
+            {
+                formatsCombobox.Items.Add(format);
+            }
+            formatsCombobox.SelectedIndex = 0;
+
             fileNameTextBox.PlaceHolderText = "Enter filename here....";
             progressBar.Visible = false;
         }
@@ -63,8 +112,16 @@ namespace PhotoArchiver
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
+                    // bestand staat op een fixed schijf
+
                     fileOverview.Nodes.Clear();
-                    BuildTree(directoryInfo, fileOverview.Nodes);
+                    fileNameTextbox.Text = "Bestandsnaam";
+                    DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
+                    if (directoryInfo.Exists)
+                    {
+                        fileOverview.Nodes.Clear();
+                        BuildTree(directoryInfo, fileOverview.Nodes);
+                    }
                 }
             }
             fileNameTextBox.Text = "";
