@@ -191,8 +191,8 @@ namespace PhotoArchiver
 
             try
             {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() == DialogResult.OK)
+                FolderBrowserDialog fbd1 = new FolderBrowserDialog();
+                if (fbd1.ShowDialog() == DialogResult.OK)
                 {
                     Console.WriteLine(fileSelf);
                     foreach (var picture in pictures)
@@ -206,12 +206,17 @@ namespace PhotoArchiver
 
                         string NewFolderPath = Path.Combine(FilePathFolder + "\\" + picture.PictureName);
 
-                        moveFile(NewFile, picture, fbd.SelectedPath);
+                        moveFile(NewFile, picture, fbd1.SelectedPath);
                         progressBar.PerformStep();
                     }
 
                     MessageBox.Show("Done!");
                     progressBar.Visible = false;
+
+                    DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
+
+                    fileOverview.Nodes.Clear();
+                    BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
             catch (Exception)
@@ -263,14 +268,6 @@ namespace PhotoArchiver
             SetNewNames();
         }
 
-        private void fileNameTextbox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                saveButton_Click(sender, e);
-            }
-        }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.L))
@@ -289,6 +286,14 @@ namespace PhotoArchiver
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void fileNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                saveButton.PerformClick();
+            }
         }
     }
 }
