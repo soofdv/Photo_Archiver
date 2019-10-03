@@ -39,7 +39,6 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
-            fileNameTextbox.Text = "Enter filename here....";
         }
 
         public void FillFormats()
@@ -58,7 +57,6 @@ namespace PhotoArchiver
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 fileOverview.Nodes.Clear();
-                fileNameTextbox1.Text = "";
                 DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
                 if (directoryInfo.Exists)
                 {
@@ -101,14 +99,10 @@ namespace PhotoArchiver
             }
         }
 
-        private void fileNameTextbox_TextChanged(object sender, EventArgs e)
-        {
-            SetNewNames();
-        }
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox1.Text;
+            string newName = fileNameTextbox.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -163,11 +157,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox1.Text + "_" + newDateTime;
+                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox1.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);
@@ -190,6 +184,8 @@ namespace PhotoArchiver
                     FilePath = picture.FilePath;
                     string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
                     renameFile(FilePath, NewFile);
+                    //string newFilePath = FilePathFolder + "\\" + picture.PictureName + "\\" + picture.PictureName + picture.FileType;
+                    //moveFile(NewFile, newFilePath);
                 }
                 MessageBox.Show("Succes!");
                 amountToRenameBar.Text = "0";
@@ -197,8 +193,18 @@ namespace PhotoArchiver
 
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong!");
             }
+        }
+
+        private void moveFile(string filePath, string newfilePath)
+        {
+            File.Move(FilePath, newfilePath);
+        }
+
+        private void renameFile(string filePath, string newFile)
+        {
+            File.Move(filePath, newFile);
         }
 
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
@@ -207,83 +213,9 @@ namespace PhotoArchiver
             fileNameTextbox.Text = fileOverview.SelectedNode.Text;
         }
 
-        private void fileNameTextbox_TextChanged(object sender, EventArgs e)
+        private void fileNameTextbox_TextChanged_1(object sender, EventArgs e)
         {
             SetNewNames();
         }
-
-        private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string newName = fileNameTextbox.Text;
-            string newFormat = formatsCombobox.Text;
-
-            newNames.Clear();
-            previewListbox.Clear();
-
-            if (newFormat == "<naam><YYYY-MM-DD><tijd>")
-            {
-                currentDateTimeFormat = "yyyy-MM-dd_HH:mm:ss";
-            }
-
-            else if (newFormat == "<naam><YYYY-DD-MM><tijd>")
-            {
-                currentDateTimeFormat = "yyyy-dd-MM_HH:mm:ss";
-            }
-
-            else if (newFormat == "<naam><DD-MM-YYYY><tijd>")
-            {
-                currentDateTimeFormat = "dd-MM-yyyy_HH:mm:ss";
-            }
-
-            else if (newFormat == "<naam><MM-DD-YYYY><tijd>")
-            {   
-                currentDateTimeFormat = "MM-dd-yyyy_HH:mm:ss";
-            }
-
-            else
-            {
-                MessageBox.Show("Geen Format Gekozen");
-            }
-
-            SetNewNames();
-        }
-
-        void SetNewNames()
-        {
-            newNames.Clear();
-            previewListbox.Clear();
-
-            var groupByDateAndTime = from picture in pictures
-                                orderby picture.DateTimeCreated
-                                group picture by picture.DateTimeCreated.ToString("yyyy-MM-dd HH:mm:ss"); //query that creates subcollections of all unique date and timestamp
-
-            var groupedPictureList = groupByDateAndTime.ToList();
-
-            foreach (var currentPictureList in groupedPictureList) //loop through all subcollections
-            {
-                int i = 0;
-
-                foreach (var currentPicture in currentPictureList) //loop through pictures in current subcollection
-                {
-                    string newDateTime = currentPicture.DateTimeCreated.ToString(currentDateTimeFormat); //get datetime based on selected format
-                    string newFullName;
-                    if (i == 0)
-                    {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
-                    }
-                    else
-                    {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
-                    }
-
-                    previewListbox.Items.Add(newFullName);
-                    currentPicture.PictureName = newFullName;
-
-                    newNames.Add(newFullName);
-
-                    i++;
-                }
-            }
-        } 
     }
 }

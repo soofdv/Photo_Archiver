@@ -39,7 +39,7 @@ namespace PhotoArchiver
             this.amountToRenameBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fileNameTextbox = new PhotoArchiver.PlaceHolderTextBox();
+            this.fileNameTextbox = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,9 @@ namespace PhotoArchiver
             // 
             // fileOverview
             // 
+            this.fileOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fileOverview.Location = new System.Drawing.Point(10, 45);
             this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
@@ -65,6 +68,7 @@ namespace PhotoArchiver
             // 
             // saveButton
             // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.Location = new System.Drawing.Point(428, 11);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
@@ -72,10 +76,11 @@ namespace PhotoArchiver
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
             // 
             // formatsCombobox
             // 
+            this.formatsCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.formatsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formatsCombobox.FormattingEnabled = true;
             this.formatsCombobox.Location = new System.Drawing.Point(208, 39);
@@ -87,6 +92,8 @@ namespace PhotoArchiver
             // 
             // previewListbox
             // 
+            this.previewListbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.previewListbox.HideSelection = false;
             this.previewListbox.Location = new System.Drawing.Point(208, 71);
             this.previewListbox.Margin = new System.Windows.Forms.Padding(2);
@@ -98,6 +105,7 @@ namespace PhotoArchiver
             // 
             // optionsButton
             // 
+            this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.optionsButton.Location = new System.Drawing.Point(518, 11);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(2);
             this.optionsButton.Name = "optionsButton";
@@ -135,16 +143,16 @@ namespace PhotoArchiver
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // fileNameTextbox1
+            // fileNameTextbox
             // 
-            this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
-            this.fileNameTextbox.ForeColor = System.Drawing.Color.Gray;
+            this.fileNameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 12);
-            this.fileNameTextbox.Name = "fileNameTextbox1";
-            this.fileNameTextbox.PlaceHolderText = "Enter FileName Here...";
-            this.fileNameTextbox.Size = new System.Drawing.Size(210, 20);
+            this.fileNameTextbox.Name = "fileNameTextbox";
+            this.fileNameTextbox.Size = new System.Drawing.Size(215, 20);
             this.fileNameTextbox.TabIndex = 8;
-            this.fileNameTextbox.Text = "Enter FileName Here...";
+            this.fileNameTextbox.Text = "Bestandnaam";
+            this.fileNameTextbox.TextChanged += new System.EventHandler(this.fileNameTextbox_TextChanged_1);
             // 
             // photoArchiverForm
             // 
@@ -182,7 +190,7 @@ namespace PhotoArchiver
         private System.Windows.Forms.ToolStripStatusLabel amountToRenameBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private PlaceHolderTextBox fileNameTextbox;
+        private System.Windows.Forms.TextBox fileNameTextbox;
     }
 }
 
