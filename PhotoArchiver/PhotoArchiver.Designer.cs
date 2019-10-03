@@ -135,16 +135,16 @@ namespace PhotoArchiver
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // fileNameTextbox1
+            // fileNameTextbox
             // 
             this.fileNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.fileNameTextbox.ForeColor = System.Drawing.Color.Gray;
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 12);
-            this.fileNameTextbox.Name = "fileNameTextbox1";
+            this.fileNameTextbox.Name = "fileNameTextbox";
             this.fileNameTextbox.PlaceHolderText = "Enter FileName Here...";
             this.fileNameTextbox.Size = new System.Drawing.Size(210, 20);
             this.fileNameTextbox.TabIndex = 8;
-            this.fileNameTextbox.Text = "Enter FileName Here...";
+            this.fileNameTextbox.TextChanged += new System.EventHandler(this.fileNameTextbox_TextChanged_1);
             // 
             // photoArchiverForm
             // 
