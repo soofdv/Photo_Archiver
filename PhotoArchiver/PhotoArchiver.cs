@@ -67,7 +67,7 @@ namespace PhotoArchiver
                     BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
-            fileNameTextbox.Text = "";
+            fileNameTextBox.Text = "";
             fileOverview.ExpandAll();
 
             SetNewNames();
@@ -271,11 +271,6 @@ namespace PhotoArchiver
             }
         }
 
-        private void photoArchiverForm_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.L))
@@ -290,7 +285,7 @@ namespace PhotoArchiver
             }
             if (keyData == (Keys.Control | Keys.N))
             {
-                fileNameTextbox.Select();
+                fileNameTextBox.Select();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
