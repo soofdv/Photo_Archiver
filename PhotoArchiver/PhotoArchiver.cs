@@ -41,7 +41,7 @@ namespace PhotoArchiver
             }
             formatsCombobox.SelectedIndex = 0;
 
-            fileNameTextbox.PlaceHolderText = "Enter filename here....";
+            fileNameTextBox.PlaceHolderText = "Enter filename here....";
         }
 
         public void FillFormats()
@@ -105,7 +105,7 @@ namespace PhotoArchiver
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string newName = fileNameTextbox.Text;
+            string newName = fileNameTextBox.Text;
             string newFormat = formatsCombobox.Text;
 
             newNames.Clear();
@@ -160,11 +160,11 @@ namespace PhotoArchiver
                     string newFullName;
                     if (i == 0)
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime;
+                        newFullName = fileNameTextBox.Text + "_" + newDateTime;
                     }
                     else
                     {
-                        newFullName = fileNameTextbox.Text + "_" + newDateTime + "(" + i + ")";
+                        newFullName = fileNameTextBox.Text + "_" + newDateTime + "(" + i + ")";
                     }
 
                     previewListbox.Items.Add(newFullName);
@@ -179,37 +179,36 @@ namespace PhotoArchiver
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
+            try
             {
-                Console.WriteLine(fileSelf);
-                foreach (var picture in pictures)
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() == DialogResult.OK)
                 {
-                    picture.AddedText = fileNameTextbox.Text;
+                    Console.WriteLine(fileSelf);
+                    foreach (var picture in pictures)
+                    {
+                        picture.AddedText = fileNameTextBox.Text;
 
-                    FilePath = picture.FilePath;
-                    string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
-                    renameFile(FilePath, NewFile);
+                        FilePath = picture.FilePath;
+                        string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
+                        renameFile(FilePath, NewFile);
 
 
-                    string NewFolderPath = Path.Combine(FilePathFolder + "\\" + picture.PictureName);
+                        string NewFolderPath = Path.Combine(FilePathFolder + "\\" + picture.PictureName);
 
-                    moveFile(NewFile, picture, fbd.SelectedPath);
+                        moveFile(NewFile, picture, fbd.SelectedPath);
+                    }
                 }
+                    //progressBar.Value = 50;
+                    //MessageBox.Show("Succes!");
+                    //progressBar.Value = 100;
+                    //amountToRenameBar.Text = "0";
+                    //progressBar.Value = 0;
             }
-                //progressBar.Value = 50;
-                //MessageBox.Show("Succes!");
-                //progressBar.Value = 100;
-                //amountToRenameBar.Text = "0";
-                //progressBar.Value = 0;
-
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Something went wrong");
-            //}
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
 
         private void renameFile(string filePath, string newFile)
@@ -247,7 +246,7 @@ namespace PhotoArchiver
         private void fileOverview_AfterSelect(object sender, TreeViewEventArgs e)
         {
             fileSelf = @FilePath + "\\" + fileOverview.SelectedNode.Text;
-            fileNameTextbox.Text = fileOverview.SelectedNode.Text;
+            fileNameTextBox.Text = fileOverview.SelectedNode.Text;
         }
 
         private void fileNameTextbox_TextChanged_1(object sender, EventArgs e)
