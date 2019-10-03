@@ -49,7 +49,7 @@ namespace PhotoArchiver
             this.fileLoaderButton.Margin = new System.Windows.Forms.Padding(2);
             this.fileLoaderButton.Name = "fileLoaderButton";
             this.fileLoaderButton.Size = new System.Drawing.Size(186, 29);
-            this.fileLoaderButton.TabIndex = 0;
+            this.fileLoaderButton.TabIndex = 1;
             this.fileLoaderButton.Text = "Bestanden Inladen";
             this.fileLoaderButton.UseVisualStyleBackColor = true;
             this.fileLoaderButton.Click += new System.EventHandler(this.fileLoaderButton_Click);
@@ -63,7 +63,7 @@ namespace PhotoArchiver
             this.fileOverview.Margin = new System.Windows.Forms.Padding(2);
             this.fileOverview.Name = "fileOverview";
             this.fileOverview.Size = new System.Drawing.Size(186, 344);
-            this.fileOverview.TabIndex = 1;
+            this.fileOverview.TabIndex = 10;
             this.fileOverview.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileOverview_AfterSelect);
             // 
             // saveButton
@@ -76,7 +76,7 @@ namespace PhotoArchiver
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // formatsCombobox
             // 
@@ -150,9 +150,10 @@ namespace PhotoArchiver
             this.fileNameTextbox.Location = new System.Drawing.Point(208, 12);
             this.fileNameTextbox.Name = "fileNameTextbox";
             this.fileNameTextbox.Size = new System.Drawing.Size(215, 20);
-            this.fileNameTextbox.TabIndex = 8;
+            this.fileNameTextbox.TabIndex = 2;
             this.fileNameTextbox.Text = "Bestandnaam";
             this.fileNameTextbox.TextChanged += new System.EventHandler(this.fileNameTextbox_TextChanged_1);
+            this.fileNameTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fileNameTextbox_KeyDown);
             // 
             // photoArchiverForm
             // 

@@ -23,6 +23,8 @@ namespace PhotoArchiver
         string FilePath;
         string fileSelf;
         string FilePathFolder;
+        FolderBrowserDialog fbd = new FolderBrowserDialog();
+
 
 
         public photoArchiverForm()
@@ -53,7 +55,6 @@ namespace PhotoArchiver
         {
             previewListbox.Clear();
             pictures.Clear();
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 fileOverview.Nodes.Clear();
@@ -64,6 +65,8 @@ namespace PhotoArchiver
                     BuildTree(directoryInfo, fileOverview.Nodes);
                 }
             }
+            fileNameTextbox.Text = "";
+            fileOverview.ExpandAll();
 
             SetNewNames();
         }
@@ -80,7 +83,7 @@ namespace PhotoArchiver
                 DateTime created = info.CreationTime;
 
                 pictures.Add(new Picture { PictureName = file.Name, DateTimeCreated = created, FilePath = file.FullName, FileType = file.Extension.ToString()});
-                amountToRenameBar.Text = (int.Parse(amountToRenameBar.Text)+100).ToString();
+                amountToRenameBar.Text = (int.Parse(amountToRenameBar.Text)+1).ToString();
             }
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {
@@ -174,7 +177,7 @@ namespace PhotoArchiver
             }
         }
 
-        private void saveButton_Click_1(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -184,17 +187,21 @@ namespace PhotoArchiver
                     FilePath = picture.FilePath;
                     string NewFile = Path.Combine(FilePathFolder + "\\" + picture.PictureName + picture.FileType);
                     renameFile(FilePath, NewFile);
-                    //string newFilePath = FilePathFolder + "\\" + picture.PictureName + "\\" + picture.PictureName + picture.FileType;
-                    //moveFile(NewFile, newFilePath);
                 }
                 MessageBox.Show("Succes!");
                 amountToRenameBar.Text = "0";
+
             }
 
             catch (Exception)
             {
                 MessageBox.Show("Something went wrong!");
             }
+            pictures.Clear();
+            fileOverview.Nodes.Clear();
+            DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
+            BuildTree(directoryInfo, fileOverview.Nodes);
+            fileOverview.ExpandAll();
         }
 
         private void moveFile(string filePath, string newfilePath)
@@ -216,6 +223,14 @@ namespace PhotoArchiver
         private void fileNameTextbox_TextChanged_1(object sender, EventArgs e)
         {
             SetNewNames();
+        }
+
+        private void fileNameTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                saveButton_Click(sender, e);
+            }
         }
     }
 }
