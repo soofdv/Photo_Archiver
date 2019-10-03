@@ -28,7 +28,6 @@ namespace PhotoArchiver
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.fileLoaderButton = new System.Windows.Forms.Button();
             this.fileOverview = new System.Windows.Forms.TreeView();
             this.saveButton = new System.Windows.Forms.Button();
@@ -38,7 +37,6 @@ namespace PhotoArchiver
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.amountToRenameBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fileNameTextBox = new PhotoArchiver.PlaceHolderTextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusStrip1.SuspendLayout();
@@ -139,11 +137,6 @@ namespace PhotoArchiver
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(90, 17);
             this.toolStripStatusLabel4.Text = "Files to rename.";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // fileNameTextBox
             // 
             this.fileNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
@@ -180,7 +173,6 @@ namespace PhotoArchiver
             this.Name = "photoArchiverForm";
             this.Text = "Photo Archiver";
             this.Load += new System.EventHandler(this.photoArchiverForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.photoArchiverForm_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -199,7 +191,6 @@ namespace PhotoArchiver
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel amountToRenameBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private PlaceHolderTextBox fileNameTextBox;
         private System.Windows.Forms.ProgressBar progressBar;
     }
