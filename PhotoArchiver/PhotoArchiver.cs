@@ -26,6 +26,9 @@ namespace PhotoArchiver
         string fileSelf;
         string FilePathFolder;
         FolderBrowserDialog fbd = new FolderBrowserDialog();
+        new Keys LoadKeyCode = Keys.L;
+        new Keys SaveKeyCode = Keys.S;
+        new Keys RenameSelectKeyCode = Keys.N;
 
         public photoArchiverForm()
         {
@@ -94,15 +97,6 @@ namespace PhotoArchiver
             fileOverview.ExpandAll();
 
             FilePathFolder = directoryInfo.FullName;
-        }
-
-        private void optionsButton_Click(object sender, EventArgs e)
-        {
-            //options form
-            foreach (var picture in pictures)
-            {
-                MessageBox.Show(picture.FileType);
-            }
         }
 
         private void formatsCombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -270,7 +264,7 @@ namespace PhotoArchiver
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.Control | Keys.L))
+            if (keyData == (Keys.Control | LoadKeyCode))
             {
                 fileLoaderButton.PerformClick();
                 return true;
@@ -287,6 +281,15 @@ namespace PhotoArchiver
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+        private void optionsButton_Click(object sender, EventArgs e)
+        {
+            //options form
+            foreach (var picture in pictures)
+            {
+                MessageBox.Show(picture.FileType);
+            }
+
+        }
 
         private void fileNameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -295,5 +298,6 @@ namespace PhotoArchiver
                 saveButton.PerformClick();
             }
         }
+
     }
 }
