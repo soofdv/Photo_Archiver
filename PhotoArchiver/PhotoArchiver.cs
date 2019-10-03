@@ -42,6 +42,7 @@ namespace PhotoArchiver
             formatsCombobox.SelectedIndex = 0;
 
             fileNameTextBox.PlaceHolderText = "Enter filename here....";
+            progressBar.Visible = false;
         }
 
         public void FillFormats()
@@ -83,7 +84,7 @@ namespace PhotoArchiver
                 DateTime created = info.CreationTime;
 
                 pictures.Add(new Picture { PictureName = file.Name, DateTimeCreated = created, FilePath = file.FullName, FileType = file.Extension.ToString()});
-                amountToRenameBar.Text = (int.Parse(amountToRenameBar.Text)+100).ToString();
+                amountToRenameBar.Text = (int.Parse(amountToRenameBar.Text)+1).ToString();
             }
             foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
             {
@@ -179,6 +180,14 @@ namespace PhotoArchiver
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            int amountOfPictures = pictures.Count;
+            double progressbarStep = amountOfPictures / 100;
+
+            progressBar.Value = 1;
+            progressBar.Visible = true;
+            progressBar.Maximum = amountOfPictures;
+            progressBar.Minimum = 0;
+
             try
             {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -197,13 +206,12 @@ namespace PhotoArchiver
                         string NewFolderPath = Path.Combine(FilePathFolder + "\\" + picture.PictureName);
 
                         moveFile(NewFile, picture, fbd.SelectedPath);
+                        progressBar.PerformStep();
                     }
+
+                    MessageBox.Show("Done!");
+                    progressBar.Visible = false;
                 }
-                    //progressBar.Value = 50;
-                    //MessageBox.Show("Succes!");
-                    //progressBar.Value = 100;
-                    //amountToRenameBar.Text = "0";
-                    //progressBar.Value = 0;
             }
             catch (Exception)
             {
@@ -249,7 +257,7 @@ namespace PhotoArchiver
             fileNameTextBox.Text = fileOverview.SelectedNode.Text;
         }
 
-        private void fileNameTextbox_TextChanged_1(object sender, EventArgs e)
+        private void fileNameTextBox_TextChanged(object sender, EventArgs e)
         {
             SetNewNames();
         }
