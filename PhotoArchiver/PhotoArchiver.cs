@@ -62,16 +62,22 @@ namespace PhotoArchiver
             pictures.Clear();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                fileOverview.Nodes.Clear();
-                DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
-                if (directoryInfo.Exists)
+                if (isDriveFixed(fbd.SelectedPath) == true)
                 {
                     fileOverview.Nodes.Clear();
-                    BuildTree(directoryInfo, fileOverview.Nodes);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(fbd.SelectedPath);
+                    if (directoryInfo.Exists)
+                    {
+                        fileOverview.Nodes.Clear();
+                        BuildTree(directoryInfo, fileOverview.Nodes);
+                    }
+                }
+                else
+                {
+                    // bestand staat niet op een fixed schijf 
+                    MessageBox.Show("Zet de bestanden eerst op een systeem schijf.");
                 }
             }
-            fileNameTextBox.Text = "";
-            fileOverview.ExpandAll();
 
             SetNewNames();
         }
@@ -176,11 +182,12 @@ namespace PhotoArchiver
         private void saveButton_Click(object sender, EventArgs e)
         {
             int amountOfPictures = pictures.Count;
-            double progressbarStep = amountOfPictures / 100;
+            int progressbarStep = 100 / amountOfPictures;
 
             progressBar.Value = 1;
             progressBar.Visible = true;
-            progressBar.Maximum = amountOfPictures;
+            progressBar.Maximum = 100;
+            progressBar.Step = progressbarStep;
             progressBar.Minimum = 0;
 
             try
@@ -262,42 +269,28 @@ namespace PhotoArchiver
             SetNewNames();
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        public bool isDriveFixed(string filepath)
         {
-            if (keyData == (Keys.Control | LoadKeyCode))
-            {
-                fileLoaderButton.PerformClick();
-                return true;
-            }
-            if (keyData == (Keys.Control | Keys.S))
-            {
-                saveButton.PerformClick();
-                return true;
-            }
-            if (keyData == (Keys.Control | Keys.N))
-            {
-                fileNameTextBox.Select();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-        private void optionsButton_Click(object sender, EventArgs e)
-        {
-            //options form
-            foreach (var picture in pictures)
-            {
-                MessageBox.Show(picture.FileType);
-            }
+            // define string  
+            String str = filepath;
 
-        }
+            // retrieve the substring from index 0 to length 8  
+            string location = str.Substring(0, 3);
 
-        private void fileNameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            DriveInfo[] allDrives = System.IO.DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
             {
-                saveButton.PerformClick();
+                if (location == d.Name.ToString())
+                {
+                    if (d.IsReady && d.DriveType == DriveType.Fixed)
+                    {
+                        // // schijf is fixed 
+                        return true;
+                    }
+                    return false;
+                }
             }
+            return false;
         }
-
     }
 }
