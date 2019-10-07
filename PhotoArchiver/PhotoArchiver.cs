@@ -184,7 +184,7 @@ namespace PhotoArchiver
             int amountOfPictures = pictures.Count;
             int progressbarStep = 100 / amountOfPictures;
 
-            progressBar.Value = 1;
+            progressBar.Value = 1 + progressbarStep;
             progressBar.Visible = true;
             progressBar.Maximum = 100;
             progressBar.Step = progressbarStep;
@@ -229,7 +229,6 @@ namespace PhotoArchiver
         private void renameFile(string filePath, string newFile)
         {
             File.Move(filePath, newFile);
-          
         }
 
         private void moveFile(string filePath, Picture picture, string SelectedPath)

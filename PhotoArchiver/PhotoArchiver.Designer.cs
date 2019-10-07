@@ -112,7 +112,6 @@ namespace PhotoArchiver
             this.optionsButton.TabIndex = 6;
             this.optionsButton.Text = "Opties";
             this.optionsButton.UseVisualStyleBackColor = true;
-            this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
             // 
             // statusStrip1
             // 
@@ -147,7 +146,6 @@ namespace PhotoArchiver
             this.fileNameTextBox.Size = new System.Drawing.Size(215, 20);
             this.fileNameTextBox.TabIndex = 9;
             this.fileNameTextBox.TextChanged += new System.EventHandler(this.fileNameTextBox_TextChanged);
-            this.fileNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fileNameTextBox_KeyDown);
             // 
             // progressBar
             // 
